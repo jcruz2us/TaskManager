@@ -1,0 +1,122 @@
+﻿@model TaskManager.ViewModels.TaskIndex
+@{
+    ViewBag.Title = "Index";
+}
+
+@helper DisplayTasks(List<TaskManager.Models.Task> tasks)
+{
+    <table>
+        <tr>
+            <th>
+                Description
+            </th>
+            <th>
+                Is Completed
+            </th>
+            <th>
+            </th>
+        </tr>
+        @foreach (var item in tasks)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsCompleted)
+                </td>
+                <td>
+                
+                    @{ var editId = "TaskEdit" + @item.Id; }
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "task-edit", rel="#" + editId })
+                    |
+                    <div id="@editId" class="task-edit-container">
+                        @Html.Action("Edit", new { id = item.Id })
+                    </div>
+                    @Ajax.ActionLink("Delete", "Delete", new { id = item.Id }, new AjaxOptions { HttpMethod = "POST", Confirm = "Are you sure?", OnSuccess = "deleteTask_OnSuccess" })
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+@section styles
+{
+    <style>
+        #NewTaskContainer
+        {
+            display: none;
+        }
+        div.task-edit-container
+        {
+            display: none;
+        }
+        div.container
+        {
+            display: inline-block;
+        }
+    </style>
+}
+
+<h2>Index</h2>
+<a href="javascript:void(0)" id="NewTask">New Task</a>
+<div id="NewTaskContainer">
+    @Html.Action("Create")
+</div>
+<div id="TasksContainer">
+    <div class="container">
+        <strong>Pending</strong>
+        @DisplayTasks(Model.PendingTasks)
+    </div>
+    <div class="container">
+        <strong>Completed</strong>
+        @DisplayTasks(Model.CompletedTasks)
+    </div>
+</div>
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //find and cache frequently used elements
+            tasksContainer = $("#TasksContainer");
+
+            newTaskContainer = $("#NewTaskContainer").dialog({ autoOpen: false });
+            newTask = $("#NewTask").click(function (event) {
+                newTaskContainer.dialog("open");
+            });
+
+            //when an edit link is clicked show the dialog to edit the task
+            tasksContainer.on("click", "a.task-edit", function (event) {
+                event.preventDefault();
+                //the dialog for the link is the selector in the rel attribute
+                var editDivId = $(this).attr("rel");
+                var dialogContent = $(editDivId).dialog();
+            });
+        });
+
+        function deleteTask_OnSuccess(response) {
+            refreshTasksFromHtml(response);
+        }
+
+        function formNewTask_OnSuccess(response) {
+            refreshTasksFromHtml(response);
+            //reset the New Task form
+            newTaskContainer.find("form")[0].reset();
+        }
+
+        function formEditTask_OnSuccess(response) {
+            refreshTasksFromHtml(response);
+
+            //get the dialogs that are visible, find the element that controls dialog, close them
+            $("div.ui-dialog:visible").find("div.task-edit-container").dialog("close");
+        }
+
+        function refreshTasksFromHtml(html) {
+            var page = $(html);
+            tasksContainer.html(page.find("#TasksContainer").html());
+        }
+    </script>
+}

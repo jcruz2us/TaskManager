@@ -1,0 +1,11 @@
+c:\users\jorge\documents\visual studio 2010\Projects\TaskManager\TaskManager.Tests\obj\Debug\ResolveAssemblyReference.cache
+c:\users\jorge\documents\visual studio 2010\Projects\TaskManager\TaskManager.Tests\bin\Debug\TaskManager.Tests.dll.config
+c:\users\jorge\documents\visual studio 2010\Projects\TaskManager\TaskManager.Tests\bin\Debug\TaskManager.Tests.dll
+c:\users\jorge\documents\visual studio 2010\Projects\TaskManager\TaskManager.Tests\bin\Debug\TaskManager.Tests.pdb
+c:\users\jorge\documents\visual studio 2010\Projects\TaskManager\TaskManager.Tests\bin\Debug\TaskManager.dll
+c:\users\jorge\documents\visual studio 2010\Projects\TaskManager\TaskManager.Tests\bin\Debug\TaskManager.pdb
+c:\users\jorge\documents\visual studio 2010\Projects\TaskManager\TaskManager.Tests\obj\Debug\TaskManager.Tests.dll
+c:\users\jorge\documents\visual studio 2010\Projects\TaskManager\TaskManager.Tests\obj\Debug\TaskManager.Tests.pdb
+C:\Users\Jorge\Documents\visual studio 2010\Projects\TaskManager\TaskManager.Tests\bin\Debug\Moq.dll
+C:\Users\Jorge\Documents\visual studio 2010\Projects\TaskManager\TaskManager.Tests\bin\Debug\Moq.pdb
+C:\Users\Jorge\Documents\visual studio 2010\Projects\TaskManager\TaskManager.Tests\bin\Debug\Moq.xml

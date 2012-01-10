@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager", "TaskManager\TaskManager.csproj", "{D25DE18B-8FBE-4004-A764-E47F405891AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Tests", "TaskManager.Tests\TaskManager.Tests.csproj", "{C12BA056-D990-4326-9118-A693057D6779}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D25DE18B-8FBE-4004-A764-E47F405891AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D25DE18B-8FBE-4004-A764-E47F405891AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D25DE18B-8FBE-4004-A764-E47F405891AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D25DE18B-8FBE-4004-A764-E47F405891AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C12BA056-D990-4326-9118-A693057D6779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C12BA056-D990-4326-9118-A693057D6779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C12BA056-D990-4326-9118-A693057D6779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C12BA056-D990-4326-9118-A693057D6779}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
